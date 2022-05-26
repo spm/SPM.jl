@@ -1,9 +1,19 @@
-module Hello
-push!(LOAD_PATH, joinpath(pwd(),"src"))
+module Coregistration
+
+push!(LOAD_PATH, joinpath(pwd(),"..","src"))
 import SPM
 
 Base.@ccallable function julia_main(ARGS::Vector{String})::Cint
+    try
+        real_main()
+    catch
+        Base.invokelatest(Base.display_error, Base.catch_stack())
+        return 1
+    end
+    return 0
+end
 
+function real_main()
     if length(ARGS)<2
         println("Usage: coreg fixed.nii moved.nii samp cost hsmo1 hsmo2")
         println("  fixed - filename of the NIfTI image that remains fixed")
@@ -38,5 +48,9 @@ Base.@ccallable function julia_main(ARGS::Vector{String})::Cint
     return 0
 end
 
+if abspath(PROGRAM_FILE) == @__FILE__
+    real_main()
 end
+
+end # module
 
