@@ -1,5 +1,6 @@
 module Hello
-include("Coreg.jl")
+push!(LOAD_PATH, joinpath(pwd(),"src"))
+import SPM
 
 Base.@ccallable function julia_main(ARGS::Vector{String})::Cint
 
@@ -27,8 +28,8 @@ Base.@ccallable function julia_main(ARGS::Vector{String})::Cint
     end
 
     try
-        x,o = Coreg.run(ARGS[1],ARGS[2],samp,cost,hsmo)
-        A   = Coreg.spm_matrix(x)
+        x,o = SPM.Coreg.run(ARGS[1],ARGS[2],samp,cost,hsmo)
+        A   = SPM.Coreg.spm_matrix(x)
         println(A)
     catch
         println("An error occurred.")

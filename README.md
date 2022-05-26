@@ -29,13 +29,15 @@ Example of between modality coregistration using information theory
 If needed, you can download test data [here](https://github.com/spm/spm-notebooks/tree/main/data).
 
 ```julia
-julia> include("Coreg.jl");
+julia> push!(LOAD_PATH,joinpath(pwd(),"src"))
+
+julia> using SPM
 
 julia> P1 = "./T1w.nii";
 
 julia> P2 = "./bold.nii";
 
-julia> x,o = Coreg.run(P1,P2,[4],"nmi")
+julia> x,o = SPM.Coreg.run(P1,P2,[4],"nmi")
 bold.nii -> T1w.nii w. nmi, 4mm samp. & 5x5 hist. smo.
 0.4885   0        0        0        0        0        | -1.0011
 0.4885   0.5516   0        0        0        0        | -1.0011
@@ -58,4 +60,10 @@ bold.nii -> T1w.nii w. nmi, 4mm samp. & 5x5 hist. smo.
 0.5085   1.246    0.08019  0.1227   0        0        | -1.0012
 ([0.5084690641189673, 1.2458319387515466, 0.08018609030614379, 0.12270502915244379, 0.0, 0.0], -1.0012251f0)
 
+julia> A = SPM.Coreg.spm_matrix(x)
+4×4 Array{Float64,2}:
+ 1.0   0.0       0.0       0.508469
+ 0.0   0.992481  0.122397  1.24583
+ 0.0  -0.122397  0.992481  0.0801861
+ 0.0   0.0       0.0       1.0
 ```

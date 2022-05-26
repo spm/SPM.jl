@@ -10,7 +10,7 @@ export fmg3,cgs3,vel2mom,push,pull,identity,hist2,bound
 
 const mwSize        = Csize_t
 const mwSignedIndex = Csize_t
-const libSPM        = "libSPM"
+const libSPM        = joinpath(@__DIR__,"libSPM.so")
 
 import LinearAlgebra:I
 
