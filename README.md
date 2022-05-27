@@ -1,10 +1,12 @@
 # SPM.jl
 
+<img src="https://github.com/spm/SPM.jl/blob/main/docs/assets/SPMjl.png" width="250">
+
 ## Introduction
 
 `SPM.jl` is a [Julia](https://julialang.org/) package alongside
-the [SPM software](https://www.fil.ion.ucl.ac.uk/spm/). It has been
-designed for the analysis of brain imaging data sequences.
+the [SPM software](https://www.fil.ion.ucl.ac.uk/spm/), designed
+for the analysis of brain imaging data sequences.
 
 ## Installation
 
@@ -17,8 +19,8 @@ Pkg.add("SpecialFunctions")
 Pkg.add("NIfTI")
 ```
 
-It requires a shared library `libSPM` (see
-SPM [Makefile](https://github.com/spm/spm/blob/main/src/Makefile)).
+It also requires a shared library `libSPM` (see
+[SPM Makefile](https://github.com/spm/spm/blob/main/src/Makefile)).
 A compiled library `libSPM.so` is provided for 64-bit Linux environments.
 
 ## Usage
