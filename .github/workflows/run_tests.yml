@@ -21,6 +21,7 @@ jobs:
         uses: julia-actions/setup-julia@v1
         with:
           version: '1'
+      - name: Install packages
         run: |
           julia -e 'import Pkg;Pkg.add("SpecialFunctions");Pkg.add("NIfTI")'
     
