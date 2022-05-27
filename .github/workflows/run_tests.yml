@@ -14,7 +14,7 @@ on:
       - main
 
 jobs:
-  test:
+  Tests:
     runs-on: ubuntu-latest
     steps:
       - name: Install dependencies
@@ -30,5 +30,6 @@ jobs:
 
       - name: Run tests
         run: |
-          ./test/test_coreg.jl
+          cd test
+          ./test_coreg.jl
           
