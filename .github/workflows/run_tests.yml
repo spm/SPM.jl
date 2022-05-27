@@ -1,0 +1,33 @@
+name: Tests
+on:
+  push:
+    branches:
+      - main
+
+  release:
+    types: [published]
+
+  pull_request:
+
+  workflow_dispatch:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        uses: julia-actions/setup-julia@v1
+        with:
+          version: '1'
+        run: |
+          julia -e 'import Pkg;Pkg.add("SpecialFunctions");Pkg.add("NIfTI")'
+    
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run tests
+        run: |
+          ./test/test_coreg.jl
+          
