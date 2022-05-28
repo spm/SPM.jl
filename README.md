@@ -10,13 +10,14 @@ for the analysis of brain imaging data sequences.
 
 ## Installation
 
-`SPM.jl` is available for Julia v1.0 and later releases, and
-requires the packages `SpecialFunctions` and `NIfTI`.
+`SPM.jl` is available for Julia v1.6 and later releases.  It can be installed
+with [Julia built-in package
+manager](https://julialang.github.io/Pkg.jl/stable/).  In a Julia session, after
+entering the package manager mode with `]`, run the command
 
 ```julia
-import Pkg;
-Pkg.add("SpecialFunctions")
-Pkg.add("NIfTI")
+pkg> update
+pkg> add https://github.com/spm/SPM.jl
 ```
 
 It also requires a shared library `libSPM` (see
@@ -31,8 +32,6 @@ Example of between modality coregistration using information theory
 If needed, you can download test data [here](https://github.com/spm/spm-notebooks/tree/main/data).
 
 ```julia
-julia> push!(LOAD_PATH,joinpath(pwd(),"src"))
-
 julia> using SPM
 
 julia> P1 = "./T1w.nii";
