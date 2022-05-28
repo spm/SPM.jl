@@ -1,7 +1,10 @@
 import SPM
+using LazyArtifacts, Artifacts
 
-P1  = download("https://github.com/spm/spm-notebooks/raw/main/data/T1w.nii")
-P2  = download("https://github.com/spm/spm-notebooks/raw/main/data/bold.nii")
+const notebooks_data = joinpath(artifact"spm_notebooks", "spm-notebooks-2a09e1845ad6ec2ec6b9d0ca175cf8aa5d073e81", "data")
+
+const P1 = joinpath(notebooks_data, "T1w.nii")
+const P2 = joinpath(notebooks_data, "bold.nii")
 
 x,o = SPM.Coreg.run(P1,P2,[4],"nmi")
 A   = SPM.Coreg.spm_matrix(x)
