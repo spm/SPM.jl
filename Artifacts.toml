@@ -1,0 +1,7 @@
+[spm_notebooks]
+git-tree-sha1 = "a5ecd3e2ebe1e48c0db3474a67debfe8a6cc7bbd"
+lazy = true
+
+    [[spm_notebooks.download]]
+    sha256 = "a0e89b0c4786dee988ea5ec45f291cf665c773c93559a505dc8ff46010fb1c13"
+    url = "https://github.com/spm/spm-notebooks/archive/2a09e1845ad6ec2ec6b9d0ca175cf8aa5d073e81.tar.gz"
