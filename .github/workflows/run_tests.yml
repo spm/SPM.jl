@@ -16,20 +16,25 @@ on:
 jobs:
   Tests:
     runs-on: ubuntu-latest
+    name: Julia ${{ matrix.julia-version }} - ${{ matrix.os }} - ${{ matrix.julia-arch }}
+    strategy:
+      fail-fast: false
+      matrix:
+        julia-version:
+          - "1.6" # First compatible version
+          - "1" # Latest stable version in the 1.x series
+        os:
+          - ubuntu-latest
+        julia-arch:
+          - x64
     steps:
-      - name: Install dependencies
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Julia
         uses: julia-actions/setup-julia@v1
         with:
-          version: '1'
-      - name: Install packages
-        run: |
-          julia -e 'import Pkg;Pkg.add("SpecialFunctions");Pkg.add("NIfTI")'
-    
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Run tests
-        run: |
-          cd test
-          ./test_coreg.jl
-          
+          version: ${{ matrix.julia-version }}
+          arch: ${{ matrix.julia-arch }}
+      - uses: julia-actions/cache@v1
+      - uses: julia-actions/julia-buildpkg@v1
+      - uses: julia-actions/julia-runtest@v1
