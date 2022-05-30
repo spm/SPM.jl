@@ -20,7 +20,9 @@ pkg> update
 pkg> add https://github.com/spm/SPM.jl
 ```
 
-It also requires a shared library `libSPM` (see
+To exit from the Pkg REPL mode press the backspace key, or `Ctrl + C`.
+
+`SPM.jl` also requires a shared library `libSPM` (see
 [SPM Makefile](https://github.com/spm/spm/blob/main/src/Makefile)).
 A compiled library `libSPM.so` is provided for 64-bit Linux environments.
 
