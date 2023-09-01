@@ -1,0 +1,6 @@
+[deps]
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+CodecZlib = "944b1d66-785c-5afd-91f1-9de20f533193"
+InteractiveUtils = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
+SPM = "6f9b02ea-295b-490e-93f0-f83ae244d924"
+Tar = "a4e569a6-e804-4fa4-b0f3-eef7a1d5b13e"
