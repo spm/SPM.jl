@@ -1,6 +1,6 @@
 # SPM.jl
 
-<img src="https://github.com/spm/SPM.jl/blob/main/docs/assets/SPMjl.png" width="250">
+<img src="https://github.com/spm/SPM.jl/blob/main/docs/src/assets/logo.png" width="250">
 
 ## Introduction
 
